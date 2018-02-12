@@ -3,6 +3,7 @@ package com.zillion.crypto_price_details;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,6 +20,9 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private String app_server_url = "https://blockchain.info/ticker";
     Button btn;
     TextView tv_buying, tv_selling;
+
+    String details = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,19 @@ public class MainActivity extends AppCompatActivity {
                 asyncRequestObject.execute(app_server_url);
             }
         });
+    }
+
+    public void showToast(){
+        bitcoinDetails bd = new bitcoinDetails();
+        try {
+            JSONObject jo= new JSONObject(details);
+            bd.buy= jo.getJSONObject("USD").get("buy").toString();
+            bd.sell= jo.getJSONObject("USD").get("sell").toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        tv_buying.setText(bd.buy);
+        tv_selling.setText(bd.sell);
     }
 
     private class AsyncDataClass extends AsyncTask<String, Void, String> {
@@ -81,10 +100,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
+
             if (result.equals("") || result == null) {
                 Toast.makeText(getApplicationContext(), "Server connection failed", Toast.LENGTH_LONG).show();
             }
-            tv_buying.setText(result);
+            details = result;
+            showToast();
         }
 
 
@@ -94,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             try{
                 while((rLine = br.readLine())!= null){
-                    answer.append(rLine);
+                        answer.append(rLine);
                 }
             }catch (IOException e){
                 e.printStackTrace();
@@ -102,4 +123,11 @@ public class MainActivity extends AppCompatActivity {
             return answer;
         }
     }
+
+    private class bitcoinDetails{
+        String currency = "Bitcoins";
+        String buy;
+        String sell;
+    }
+
 }
