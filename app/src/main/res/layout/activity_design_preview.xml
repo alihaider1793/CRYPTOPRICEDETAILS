@@ -11,13 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.15"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:background="@android:color/darker_gray">
 
-        <TextView
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="PRICE CONVERSION COMES HERE"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="REFRESH"
+            android:layout_margin="20dp"
+            android:id="@+id/refresh" />
 
     </LinearLayout>
 
@@ -27,19 +31,155 @@
         android:layout_height="0dp"
         android:layout_weight="0.7"
         android:orientation="vertical"
-        android:background="@color/colorPrimaryDark">
+        android:background="@android:color/white">
 
-        <TextView
-            android:gravity="center"
+        <ImageView
+            android:id="@+id/cryptoIcon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_margin="40dp"
+            />
+
+
+        <LinearLayout
+            android:layout_marginTop="40dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="DETAILS OF THE SELECTED CRYPTO COMES HERE"/>
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_marginStart="60dp"
+                android:layout_height="wrap_content"
+                android:text="HOUR:"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/hour_tv"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:paddingRight="20dp"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="DAY:"
+                android:layout_marginStart="60dp"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/day_tv"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="PRICE:"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/price_tv"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:layout_width="0dp"
+                android:layout_marginStart="60dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:text="COIN HEAT:"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/heat_tv"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_marginStart="60dp"
+                android:layout_height="wrap_content"
+                android:text="CAP:"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/cap_tv"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
 
 
     </LinearLayout>
 
 
     <LinearLayout
+        android:background="@android:color/darker_gray"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.15"
