@@ -13,13 +13,13 @@ import java.util.List;
  */
 
 public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyViewHolder> {
-    cryptoCurrency c = new cryptoCurrency();
-    String symbol = c.getSymbol();
+
 
     private List<cryptoCurrency> cryptoCurrencies;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView sym_tv;
+
 
         public MyViewHolder(View view) {
             super(view);
@@ -33,8 +33,7 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_layout, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_layout, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -45,9 +44,13 @@ public class recyclerAdapter extends RecyclerView.Adapter<recyclerAdapter.MyView
         holder.sym_tv.setText(cc.getSymbol());
     }
 
-
     @Override
     public int getItemCount() {
         return cryptoCurrencies.size();
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
     }
 }
