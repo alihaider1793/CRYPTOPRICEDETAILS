@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -34,40 +37,81 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     private String app_server_url = "https://blockchain.info/ticker";
-    Button btn;
-    TextView tv_buying, tv_selling;
+    private String top20_url = "https://chasing-coins.com/api/v1/top-coins/20";
+    private String imageURI = "https://chasing-coins.com/api/v1/std/logo/";
 
+    Button btn;
+    TextView symbol, cap, hour, day, price, heat;
+    ImageView crypto_icon;
+
+    //details for storing the json
     String details = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        AsyncDataClass asyncRequestObject = new AsyncDataClass();
+        asyncRequestObject.execute(top20_url);
 
+        symbol = (TextView)findViewById(R.id.symbol_tv);
+        cap = (TextView)findViewById(R.id.cap_tv);
+        hour = (TextView)findViewById(R.id.hour_tv);
+        day = (TextView)findViewById(R.id.day_tv);
+        price = (TextView)findViewById(R.id.price_tv);
+        heat = (TextView)findViewById(R.id.heat_tv);
+
+        crypto_icon = (ImageView)findViewById(R.id.imageView);
         btn = (Button) findViewById(R.id.refresh_btn);
-        tv_buying = (TextView)findViewById(R.id.buying_price_tv);
-        tv_selling = (TextView)findViewById(R.id.selling_price_tv);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AsyncDataClass asyncRequestObject = new AsyncDataClass();
-                asyncRequestObject.execute(app_server_url);
+                AsyncDataClass asyncDataClass = new AsyncDataClass();
+                asyncDataClass.execute(top20_url);
             }
         });
     }
 
-    public void showToast(){
-        bitcoinDetails bd = new bitcoinDetails();
+//    public void showToast(){
+//        bitcoinDetails bd = new bitcoinDetails();
+//        try {
+//            JSONObject jo= new JSONObject(details);
+//            bd.buy= "$ "+ jo.getJSONObject("USD").get("buy").toString();
+//            bd.sell= "$ "+  jo.getJSONObject("USD").get("sell").toString();
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        tv_buying.setText(bd.buy);
+//        tv_selling.setText(bd.sell);
+//    }
+
+    public void decodeJSON(){
+        Log.i("MAIN", "decodeJSON: "+details);
+        bitcoinDetails temp = new bitcoinDetails();
+        ArrayList<bitcoinDetails> arrayList= new ArrayList<bitcoinDetails>();
         try {
-            JSONObject jo= new JSONObject(details);
-            bd.buy= jo.getJSONObject("USD").get("buy").toString();
-            bd.sell= jo.getJSONObject("USD").get("sell").toString();
+            JSONObject jsonObject = new JSONObject(details);
+            for(int i = 1; i<=20;i++){
+                temp.symbol = jsonObject.getJSONObject(""+i).get("symbol").toString();
+                temp.cap = jsonObject.getJSONObject(""+i).get("cap").toString();
+                temp.hour = jsonObject.getJSONObject(""+i).getJSONObject("change").get("hour").toString();
+                temp.day = jsonObject.getJSONObject(""+i).getJSONObject("change").get("day").toString();
+                temp.price = jsonObject.getJSONObject(""+i).get("price").toString();
+                temp.heat = jsonObject.getJSONObject(""+i).get("coinheat").toString();
+                arrayList.add(temp);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        tv_buying.setText(bd.buy);
-        tv_selling.setText(bd.sell);
+        symbol.setText(temp.symbol);
+        Picasso.with(MainActivity.this).load(imageURI+symbol).into(crypto_icon);
+        cap.setText(temp.cap);
+        day.setText(temp.day);
+        hour.setText(temp.hour);
+        heat.setText(temp.heat);
+        price.setText(temp.price);
+
     }
 
     private class AsyncDataClass extends AsyncTask<String, Void, String> {
@@ -104,8 +148,11 @@ public class MainActivity extends AppCompatActivity {
             if (result.equals("") || result == null) {
                 Toast.makeText(getApplicationContext(), "Server connection failed", Toast.LENGTH_LONG).show();
             }
+
+            //josn result is stored in details
             details = result;
-            showToast();
+            decodeJSON();
+//            showToast();
         }
 
 
@@ -125,9 +172,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class bitcoinDetails{
-        String currency = "Bitcoins";
-        String buy;
-        String sell;
+        String symbol = "";
+        String cap = "";
+        String hour = "";
+        String day = "";
+        String price = "";
+        String heat = "";
     }
 
 }

@@ -10,22 +10,22 @@
 
 
     <Button
-
-        android:layout_gravity="right"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_gravity="start"
         android:id="@+id/refresh_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Refresh"
-        android:layout_margin="10dp" />
+        android:text="Refresh" />
 
     <ImageView
+        android:layout_marginTop="40dp"
         android:layout_gravity="center"
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/bitcoin"
-        tools:layout_editor_absoluteX="92dp"
-        tools:layout_editor_absoluteY="102dp" />
+        />
 
     <TextView
         android:layout_marginTop="20dp"
@@ -33,7 +33,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BITCOIN"
+        android:text="NAME OF CRYPTO COMES HERE"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -43,17 +43,16 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="10dp">
         <TextView
-            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BUYING PRICE:"
+            android:text="SYMBOL:"
             android:textSize="12sp"
             android:textStyle="bold" />
         <TextView
-            android:layout_marginLeft="50dp"
-            android:id="@+id/buying_price_tv"
+            android:layout_marginLeft="90dp"
+            android:id="@+id/symbol_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             />
@@ -64,24 +63,117 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HOUR:"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_marginLeft="90dp"
+            android:id="@+id/hour_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DAY:"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_marginLeft="90dp"
+            android:id="@+id/day_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PRICE:"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_marginLeft="90dp"
+            android:id="@+id/price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COIN HEAT:"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_marginLeft="90dp"
+            android:id="@+id/heat_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:gravity="center">
 
         <TextView
-            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SELLING PRICE:"
+            android:text="CAP:"
             android:textSize="12sp"
             android:textStyle="bold"
             />
 
         <TextView
-            android:layout_marginLeft="50dp"
-            android:id="@+id/selling_price_tv"
+            android:layout_marginLeft="90dp"
+            android:id="@+id/cap_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             />
+            />
 
     </LinearLayout>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/nextDetail"
+        android:text="NEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="20dp"/>
+
+
 
 </LinearLayout>
