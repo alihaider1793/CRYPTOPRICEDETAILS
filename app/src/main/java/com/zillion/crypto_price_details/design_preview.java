@@ -1,6 +1,9 @@
 package com.zillion.crypto_price_details;
 
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,9 +12,11 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,17 +50,16 @@ public class design_preview extends AppCompatActivity {
     private recyclerAdapter mAdapter;
 
     private String top20_url = "https://chasing-coins.com/api/v1/top-coins/20";
-//    private String top50_url = "https://chasing-coins.com/api/v1/top-coins/50";
     private String imageURI = "https://chasing-coins.com/api/v1/std/logo/";
-    private String details = "" , priceFinal = "";
+    private String convertURI = "https://chasing-coins.com/api/v1/convert/BTC/PKR";
+    private String details = "";
 
     ProgressDialog pg;
 
     TextView tv_day,tv_hour, tv_cap, tv_heat, tv_price;
     ImageView iv_logo;
-    Button refresh_btn;
+    ImageView refresh_btn, menu_btn;
 
-    //request code = 1 for getting top20 detail and 0 for converting currency.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,10 +78,23 @@ public class design_preview extends AppCompatActivity {
         pg.setCanceledOnTouchOutside(false);
         pg.show();
 
-        refresh_btn = (Button)findViewById(R.id.refresh);
+        menu_btn = (ImageView)findViewById(R.id.vertMenu);
+        menu_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createMenu();
+            }
+        });
+
+        refresh_btn = (ImageView) findViewById(R.id.refresh);
         refresh_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cryptoCurrencyList.clear();
+                pg = new ProgressDialog(design_preview.this);
+                pg.setMessage("UPDATING DATA...");
+                pg.setCanceledOnTouchOutside(false);
+                pg.show();
                 design_preview.AsyncDataClass asyncDataClass1 = new design_preview.AsyncDataClass();
                 asyncDataClass1.execute(top20_url);
             }
@@ -107,41 +124,29 @@ public class design_preview extends AppCompatActivity {
     }
 
 
-    private void convertCurrency() {
-        try {
-            URL url = new URL("https://www.exchange-rates.org/converter/USD/PKR/1");
-
-            // Get the input stream through URL Connection
-            URLConnection con = url.openConnection();
-            InputStream is =con.getInputStream();
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
-
-            String line = null;
-            // read each line and write to System.out
-            while ((line = br.readLine()) != null) {
-                System.out.println(line);
-            }
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
     public void showDetails(int i){
         cryptoCurrency temp = cryptoCurrencyList.get(i);
         Picasso.with(design_preview.this).load(imageURI+""+temp.getSymbol()).into(iv_logo);
-        tv_price.setText(temp.getPrice());
+        tv_price.setText("$"+temp.getPrice());
         tv_heat.setText(temp.getHeat());
-        tv_hour.setText(temp.getHour());
-        tv_day.setText(temp.getDay());
-        tv_cap.setText(temp.getCap());
+        if(temp.getHour().contains("-")){
+            tv_hour.setTextColor(getResources().getColor(R.color.colorRed));
+            tv_hour.setText(temp.getHour()+"%");
+        }
+        else{
+            tv_hour.setTextColor(getResources().getColor(R.color.colorGreen));
+            tv_hour.setText(temp.getHour()+"%");
+        }
+        if(temp.getDay().contains("-")){
+            tv_day.setTextColor(getResources().getColor(R.color.colorRed));
+            tv_day.setText(temp.getDay()+"%");
+        }
+        else{
+            tv_day.setTextColor(getResources().getColor(R.color.colorGreen));
+            tv_day.setText(temp.getDay()+"%");
+        }
+        tv_cap.setText("$"+temp.getCap());
     }
-
-
-
 
     //decodeJSON will decode the JSON and store the result in arrayList
     private void decodeJSON(){
@@ -160,12 +165,55 @@ public class design_preview extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         mAdapter.notifyDataSetChanged();
         pg.dismiss();
-        showDetails(0);
+        if(!cryptoCurrencyList.isEmpty())
+            showDetails(0);
     }
 
+
+
+    //extra features of the app
+    private void createMenu(){
+        PopupMenu popupMenu = new PopupMenu(design_preview.this, menu_btn);
+        popupMenu.getMenuInflater().inflate(R.menu.more_menu_popup, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+
+                int id = item.getItemId();
+
+                if(id == R.id.privacy_policy){
+                    Toast.makeText(design_preview.this, "PLEASE WAIT", Toast.LENGTH_SHORT).show();
+                } else if(id == R.id.rateus){
+//                    Uri maketUri = Uri.parse("market://details?id=" + getPackageName());
+//                    Log.i(TAG, "onMenuItemClick: URI FOR APP: "+maketUri);
+//                    try {
+//                        Uri marketUri = Uri.parse("market://details?id=" + getPackageName());
+//                        Intent goToMarket = new Intent(Intent.ACTION_VIEW, marketUri);
+//                        startActivity(goToMarket);
+//
+//                    }catch (ActivityNotFoundException e){
+//
+//                        Uri playstoreUri = Uri.parse("https://play.google.com/apps/testing/com.zillion.cameraview.PSL(Pakistan Selfie League)");
+//                        Intent goTOPlaystore = new Intent(Intent.ACTION_VIEW, playstoreUri);
+//                        startActivity(goTOPlaystore);
+//                    }
+                    Toast.makeText(design_preview.this, "PLEASE WAIT", Toast.LENGTH_SHORT).show();
+                }
+                else if(id == R.id.terms_of_use){
+                    Toast.makeText(design_preview.this, "PLEASE WAIT", Toast.LENGTH_SHORT).show();
+                }
+                else if(id == R.id.shareApp){
+                    Toast.makeText(design_preview.this, "PLEASE WAIT", Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            }
+        });
+
+        popupMenu.show();
+    }
 
 
     //Generate an HTTP request and fetch the data from the API
@@ -201,7 +249,7 @@ public class design_preview extends AppCompatActivity {
             super.onPostExecute(result);
 
             if (result.equals("") || result == null) {
-                Toast.makeText(getApplicationContext(), "Server connection failed", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "CONNECTION ERROR! PLEASE TRY AGAIN", Toast.LENGTH_LONG).show();
             }
 
             //josn result is stored in details
@@ -223,5 +271,4 @@ public class design_preview extends AppCompatActivity {
             return answer;
         }
     }
-
 }

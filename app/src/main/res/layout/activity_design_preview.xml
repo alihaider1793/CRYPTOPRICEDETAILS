@@ -10,17 +10,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.15"
+        android:layout_weight="0.1"
         android:orientation="horizontal"
-        android:gravity="end"
+        android:gravity="center"
         android:background="@android:color/darker_gray">
 
-
-        <Button
+        <ImageView
+            android:layout_marginStart="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="REFRESH"
-            android:layout_margin="20dp"
+            android:src="@drawable/ic_more"
+            android:id="@+id/vertMenu"
+            android:layout_weight="0.1"/>
+
+        <TextView
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TOP 20 CRYPTO-CURRENCIES"
+            android:layout_weight="0.8"/>
+
+        <ImageView
+            android:layout_marginEnd="10dp"
+            android:layout_weight="0.1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_refresh_icon"
             android:id="@+id/refresh" />
 
     </LinearLayout>
@@ -131,32 +149,6 @@
             <TextView
                 android:textColor="@android:color/black"
                 android:layout_width="0dp"
-                android:layout_marginStart="60dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
-                android:text="COIN HEAT:"
-                android:textSize="12sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:textColor="@android:color/black"
-                android:id="@+id/heat_tv"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:textColor="@android:color/black"
-                android:layout_width="0dp"
                 android:layout_weight="0.5"
                 android:layout_marginStart="60dp"
                 android:layout_height="wrap_content"
@@ -174,6 +166,32 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:layout_width="0dp"
+                android:layout_marginStart="60dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:text="COIN HEAT:"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:textColor="@android:color/black"
+                android:id="@+id/heat_tv"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -182,7 +200,7 @@
         android:background="@android:color/darker_gray"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.15"
+        android:layout_weight="0.2"
         android:orientation="horizontal">
 
         <android.support.v7.widget.RecyclerView
