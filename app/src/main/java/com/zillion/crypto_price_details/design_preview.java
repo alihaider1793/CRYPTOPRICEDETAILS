@@ -58,13 +58,17 @@ public class design_preview extends AppCompatActivity {
 
     TextView tv_day,tv_hour, tv_cap, tv_heat, tv_price;
     ImageView iv_logo;
-    ImageView refresh_btn, menu_btn;
+    ImageView refresh_btn, menu_btn,iv_calc;
+
+    int currPosition = 0;
+    //to get the current position of the recyclerview
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_design_preview);
+
 
         tv_cap = (TextView)findViewById(R.id.cap_tv);
         tv_day = (TextView)findViewById(R.id.day_tv);
@@ -110,7 +114,8 @@ public class design_preview extends AppCompatActivity {
         recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, recyclerView ,new RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
-                        showDetails(position);
+                        currPosition = position;
+                        showDetails(currPosition);
                     }
 
                     @Override public void onLongItemClick(View view, int position) {
@@ -121,6 +126,24 @@ public class design_preview extends AppCompatActivity {
 
         design_preview.AsyncDataClass asyncRequestObject = new design_preview.AsyncDataClass();
         asyncRequestObject.execute(top20_url);
+
+        iv_calc = (ImageView)findViewById(R.id.calc);
+        iv_calc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),calculator.class);
+                if(!cryptoCurrencyList.isEmpty())
+                {
+                    intent.putExtra("cryptoSymbol",cryptoCurrencyList.get(currPosition).getSymbol());
+                    intent.putExtra("cryptoPrice",cryptoCurrencyList.get(currPosition).getPrice());
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(design_preview.this, "INTERNET IS REQUIRED TO USE THIS FEATURE", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
 
@@ -168,7 +191,7 @@ public class design_preview extends AppCompatActivity {
         mAdapter.notifyDataSetChanged();
         pg.dismiss();
         if(!cryptoCurrencyList.isEmpty())
-            showDetails(0);
+            showDetails(currPosition);
     }
 
 
