@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.zillion.crypto_price_details.calculator"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/testing">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +25,7 @@
 
         <TextView
             android:id="@+id/topDetail_tv"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -67,15 +68,15 @@
                 android:id="@+id/cryptoPrice_et"
                 android:textColor="@android:color/white"
                 android:textSize="25sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
 
         <View
             android:layout_width="fill_parent"
-            android:layout_height="5dip"
-            android:background="#000000" />
+            android:layout_height="3dip"
+            android:background="@android:color/black" />
 
 
         <LinearLayout
@@ -109,6 +110,11 @@
 
     </LinearLayout>
 
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="3dip"
+        android:background="@android:color/black" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -117,39 +123,146 @@
         android:layout_gravity="center_horizontal"
         android:gravity="center">
 
-        <GridLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:columnCount="3">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="3">
 
-            <Button android:text="1"
-                android:id="@+id/num1"/>
-            <Button android:text="2"
-                android:id="@+id/num2"/>
-            <Button android:text="3"
-                android:id="@+id/num3"/>
-            <Button android:text="4"
-                android:id="@+id/num4"/>
-            <Button android:text="5"
-                android:id="@+id/num5"/>
-            <Button android:text="6"
-                android:id="@+id/num6"/>
-            <Button android:text="7"
-                android:id="@+id/num7"/>
-            <Button android:text="8"
-                android:id="@+id/num8"/>
-            <Button android:text="9"
-                android:id="@+id/num9"/>
-            <Button android:text="00"
-                android:id="@+id/num00"/>
-            <Button android:text="0"
-                android:id="@+id/num0"/>
-            <Button android:text="C"
-                android:id="@+id/clearText"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:id="@+id/firstRow">
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="1"
+                    android:id="@+id/num1" />
 
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="2"
+                    android:id="@+id/num2"/>
 
-        </GridLayout>
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="3"
+                    android:id="@+id/num3"/>
 
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="4"
+                    android:id="@+id/num4"
+                    android:layout_weight="1"/>
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="5"
+                    android:id="@+id/num5"
+                    android:layout_weight="1"/>
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="6"
+                    android:id="@+id/num6"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="7"
+                    android:id="@+id/num7"
+                    android:layout_weight="1"/>
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="8"
+                    android:id="@+id/num8"
+                    android:layout_weight="1"/>
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="9"
+                    android:id="@+id/num9"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="00"
+                    android:id="@+id/num00"
+                    android:layout_weight="1"/>
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:id="@+id/num0"
+                    android:layout_weight="1"/>
+                <Button
+                    android:background="@color/testing"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="C"
+                    android:id="@+id/clearText"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 

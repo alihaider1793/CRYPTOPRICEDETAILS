@@ -1,218 +1,255 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.zillion.crypto_price_details.design_preview"
-    android:orientation="vertical"
-    android:weightSum="1">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/testing">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/layoutTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/extraTools"
+            android:layout_alignParentTop="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp">
+
+            <ImageView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_more"
+                android:id="@+id/vertMenu"
+                android:layout_alignParentStart="true"/>
+
+            <ImageView
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_calculate"
+                android:id="@+id/calc"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+                android:id="@+id/refresh"
+                android:padding="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_refresh_icon"
+                android:layout_alignParentEnd="true"/>
+
+        </RelativeLayout>
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/white_shadow"
+            app:cardUseCompatPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/extraTools"
+            app:cardElevation="5dp"
+            android:layout_centerInParent="true"
+            app:cardCornerRadius="10dp"
+            app:cardBackgroundColor="@color/testing1">
+
+            <RelativeLayout
+                android:paddingBottom="20dp"
+                android:id="@+id/textDetailLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:paddingTop="25dp"
+                    android:paddingBottom="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/priceLayout"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:typeface="serif"
+                        android:fontFamily="serif"
+                        android:text="PRICE: "
+                        android:layout_marginStart="50dp"/>
+
+                    <TextView
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:typeface="serif"
+                        android:fontFamily="serif"
+                        android:text="VALUE"
+                        android:id="@+id/price_tv" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingBottom="5dp"
+                    android:id="@+id/capLayout"
+                    android:layout_below="@id/priceLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="50dp"
+                        android:layout_weight="0.5"
+                        android:text="CAP: "
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:fontFamily="serif"
+                        android:typeface="serif" />
+
+                    <TextView
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:typeface="serif"
+                        android:fontFamily="serif"
+                        android:text="VALUE"
+                        android:id="@+id/cap_tv" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:paddingBottom="30dp"
+                    android:id="@+id/heatLayout"
+                    android:layout_below="@id/capLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:typeface="serif"
+                        android:fontFamily="serif"
+                        android:text="COIN HEAT: "
+                        android:layout_marginStart="50dp"/>
+
+                    <TextView
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:typeface="serif"
+                        android:fontFamily="serif"
+                        android:text="VALUE"
+                        android:id="@+id/heat_tv" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingTop="10dp"
+        android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:background="@android:color/darker_gray">
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/layoutTop" >
 
-        <ImageView
-            android:layout_marginStart="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_more"
-            android:id="@+id/vertMenu"
-            android:layout_weight="0.1"/>
-
-        <ImageView
-            android:id="@+id/calc"
-            android:src="@drawable/ic_calculate"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.8"/>
-
-        <ImageView
-            android:layout_marginEnd="10dp"
-            android:layout_weight="0.1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_refresh_icon"
-            android:id="@+id/refresh" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#000000" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.75"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/cryptoIcon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="top|center"
-            android:layout_margin="40dp"
-            />
-
-        <LinearLayout
-            android:layout_marginTop="50dp"
+        <RelativeLayout
+            android:paddingBottom="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:id="@+id/secondDetailsLayout">
 
-            <TextView
-                android:textColor="@android:color/white"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_marginStart="60dp"
+            <LinearLayout
+                android:layout_centerInParent="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="HOUR:"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal"
+                android:id="@+id/dayLayout">
 
-            <TextView
-                android:textColor="@android:color/white"
-                android:id="@+id/hour_tv"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:textSize="14sp"
-                android:paddingRight="20dp"
+                <TextView
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:typeface="serif"
+                    android:fontFamily="serif"
+                    android:text="DAY: "
+                    android:layout_marginStart="85dp"/>
+
+                <TextView
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:typeface="serif"
+                    android:fontFamily="serif"
+                    android:text="VALUE"
+                    android:id="@+id/day_tv" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:paddingTop="65dp"
+                android:paddingBottom="20dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/hourLayout"
+                android:layout_below="@id/dayLayout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                />
-        </LinearLayout>
+                android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <TextView
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:typeface="serif"
+                    android:fontFamily="serif"
+                    android:text="HOUR: "
+                    android:layout_marginStart="85dp"/>
 
-            <TextView
-                android:textColor="@android:color/white"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="DAY:"
-                android:layout_marginStart="60dp"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:typeface="serif"
+                    android:fontFamily="serif"
+                    android:text="VALUE"
+                    android:id="@+id/hour_tv" />
 
-            <TextView
-                android:textSize="14sp"
-                android:textColor="@android:color/white"
-                android:id="@+id/day_tv"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
-                 />
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:textColor="@android:color/white"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="60dp"
-                android:text="PRICE:"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:textSize="14sp"
-                android:textColor="@android:color/white"
-                android:id="@+id/price_tv"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
-                 />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:textColor="@android:color/white"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_marginStart="60dp"
-                android:layout_height="wrap_content"
-                android:text="CAP:"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:textSize="14sp"
-                android:textColor="@android:color/white"
-                android:id="@+id/cap_tv"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:textColor="@android:color/white"
-                android:layout_width="0dp"
-                android:layout_marginStart="60dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
-                android:text="COIN HEAT:"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:textSize="14sp"
-                android:textColor="@android:color/white"
-                android:id="@+id/heat_tv"
-                android:layout_width="0dp"
-                android:layout_weight="0.5"
-                android:layout_height="wrap_content"
-                />
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="2dip"
-        android:background="#000000" />
-
-    <LinearLayout
-        android:background="@android:color/darker_gray"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.15"
-        android:orientation="horizontal">
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
+            android:paddingTop="20dp"
+            android:layout_below="@id/secondDetailsLayout"
+            android:layout_alignParentBottom="true"
             android:fadingEdge="horizontal"
             android:requiresFadingEdge="horizontal"
             android:cacheColorHint="#00ffffff"
@@ -223,6 +260,16 @@
             android:layout_height="wrap_content"
             android:scrollbars="vertical" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/cryptoIcon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@id/layoutBottom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-45dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bitcoin" />
+
+</RelativeLayout>

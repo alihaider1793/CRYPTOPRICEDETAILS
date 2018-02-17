@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.zillion.crypto_price_details.design_preview"
+    android:orientation="vertical"
+    android:id="@+id/mainRoot">
+
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/extraTools"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:visibility="gone">-->
+
+        <!--<ImageView-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:id="@+id/calc"-->
+            <!--android:src="@drawable/calculating"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--/>-->
+
+        <!--<ImageView-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginStart="10dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/ic_more"-->
+            <!--android:id="@+id/vertMenu" />-->
+
+
+        <!--<ImageView-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_marginEnd="10dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/ic_refresh_icon"-->
+            <!--android:id="@+id/refresh" />-->
+
+    <!--</RelativeLayout>-->
+
+
+    <!--<RelativeLayout-->
+        <!--android:background="@android:color/darker_gray"-->
+        <!--android:layout_marginTop="40dp"-->
+        <!--android:layout_marginEnd="30dp"-->
+        <!--android:layout_marginStart="30dp"-->
+        <!--android:paddingBottom="20dp"-->
+        <!--android:id="@+id/textDetailLayout"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:id="@+id/hourLayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.5"-->
+                <!--android:layout_marginStart="40dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="HOUR:"-->
+                <!--android:textSize="14sp"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<TextView-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:id="@+id/hour_tv"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.5"-->
+                <!--android:textSize="14sp"-->
+                <!--android:paddingRight="20dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--/>-->
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_below="@id/hourLayout"-->
+            <!--android:id="@+id/dayLayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="0.5"-->
+                <!--android:text="DAY:"-->
+                <!--android:layout_marginStart="40dp"-->
+                <!--android:textSize="14sp"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<TextView-->
+                <!--android:textSize="14sp"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:id="@+id/day_tv"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.5"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--/>-->
+        <!--</LinearLayout>-->
+
+        <!--<View-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_below="@id/dayLayout"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="1dip"-->
+            <!--android:background="#000000" />-->
+
+
+        <!--<LinearLayout-->
+            <!--android:layout_below="@id/dayLayout"-->
+            <!--android:id="@+id/priceLayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.5"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginStart="40dp"-->
+                <!--android:text="PRICE:"-->
+                <!--android:textSize="14sp"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<TextView-->
+                <!--android:textSize="14sp"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:id="@+id/price_tv"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.5"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--/>-->
+        <!--</LinearLayout>-->
+
+        <!--<View-->
+            <!--android:layout_below="@id/priceLayout"-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="1dip"-->
+            <!--android:background="#000000" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_below="@id/priceLayout"-->
+            <!--android:id="@+id/capLayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.5"-->
+                <!--android:layout_marginStart="40dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="CAP:"-->
+                <!--android:textSize="14sp"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<TextView-->
+                <!--android:textSize="14sp"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:id="@+id/cap_tv"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.5"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--/>-->
+
+        <!--</LinearLayout>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_below="@id/capLayout"-->
+            <!--android:id="@+id/heatLayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_marginStart="40dp"-->
+                <!--android:layout_weight="0.5"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="COIN HEAT:"-->
+                <!--android:textSize="14sp"-->
+                <!--android:textStyle="bold" />-->
+
+            <!--<TextView-->
+                <!--android:textSize="14sp"-->
+                <!--android:textColor="@android:color/white"-->
+                <!--android:id="@+id/heat_tv"-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_weight="0.5"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--/>-->
+        <!--</LinearLayout>-->
+
+    <!--</RelativeLayout>-->
+
+
+    <!--<View-->
+        <!--android:layout_below="@id/extraTools"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="2dip"-->
+        <!--android:background="#000000" />-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_below="@+id/textDetailLayout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:paddingBottom="10dp"-->
+        <!--android:orientation="vertical"-->
+        <!--android:id="@+id/detailsLayout">-->
+
+        <!--<ImageView-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:id="@+id/cryptoIcon"-->
+            <!--android:layout_width="140dp"-->
+            <!--android:layout_height="140dp"-->
+            <!--android:layout_margin="40dp"-->
+            <!--/>-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<View-->
+        <!--android:layout_below="@id/detailsLayout"-->
+        <!--android:id="@+id/seperationLayer2"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="2dip"-->
+        <!--android:background="#000000"-->
+        <!--android:layout_marginTop="25dp"/>-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_below="@id/seperationLayer2"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:fadingEdge="horizontal"-->
+            <!--android:requiresFadingEdge="horizontal"-->
+            <!--android:cacheColorHint="#00ffffff"-->
+            <!--android:clickable="true"-->
+            <!--android:focusable="true"-->
+            <!--android:id="@+id/allCryptoCurrencies"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:scrollbars="vertical" />-->
+
+    <!--</LinearLayout>-->
+
+</RelativeLayout>

@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorRed">#FF0000</color>
     <color name="colorGreen">#00FF00</color>
+
+    <color name="testing">#2a314e</color>
+    <color name="testing1">#303b5b</color>
+
 </resources>
